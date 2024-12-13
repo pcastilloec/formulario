@@ -1,0 +1,28 @@
+{% load static %}
+
+<head>
+<div>
+    <h1>Lista de Registros</h1>
+
+    <link rel="stylesheet" href="{% static 'inicio.css' %}">
+
+    <a href="{% url 'registro_racks' %}">Nuevo Registro - Racks</a>
+    <br><br>
+    <a href="{% url 'visualizar_registros_racks' %}">Visualizar - Racks</a>
+    <br><br>
+    <a href="{% url 'registro_maquinas' %}">Nuevo Registro - Máquinas</a>
+    <br><br>
+    <a href="{% url 'visualizar_registros_maquinas' %}">Visualizar - Máquinas</a>
+    <br><br>
+    <a href="{% url 'reporte_detallado' %}">Reporte - Toneladas</a>
+    
+</div>
+</head>
+<head>
+    <!-- SweetAlert2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>

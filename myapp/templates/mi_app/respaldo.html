@@ -1,0 +1,281 @@
+<h1>Nuevo Registro</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exposynergy</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    
+
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 20;
+            background-color: #fcfbff;
+        }
+        .Guardar {
+            padding: 5px 20px;
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            border: 2px solid #04AA6D;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .Guardar:hover{
+            background: #0a9763;
+            color: white;
+        }
+        .Actualizar {
+            padding: 5px 20px;
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .Actualizar:hover{
+            background: #228af8;
+            color: white;
+        }
+        .Eliminar {
+            padding: 5px 20px;
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            border: 2px solid #f44336;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .Eliminar:hover{
+            background: #f86257;
+            color: white;
+        }       
+    </style>
+</head>
+
+<form method="post">
+    <button class="Guardar">Guardar</button>
+    <button class="Actualizar">Actualizar</button>
+    <button class="Eliminar">Eliminar</button>
+    {% csrf_token %}
+    
+    <table>
+        <tr>
+            <td>{{ form.MAQUINA_DE_FREON.label_tag }}</td>
+            <td>{{ form.MAQUINA_DE_FREON }}</td>
+            <td>{{ form.ESTADO_DEL_CONDENSADOR.label_tag }}</td>
+            <td>{{ form.ESTADO_DEL_CONDENSADOR }}</td>
+            <td>{{ form.NIVEL_DE_REFRIGERANTE.label_tag }}</td>
+            <td>{{ form.NIVEL_DE_REFRIGERANTE }}</td>
+        </tr>
+
+        <tr>
+            <td>{{ form.TEMPERATURA_AMBIENTE.label_tag }}</td>
+            <td>{{ form.TEMPERATURA_AMBIENTE }}</td>
+            <td>{{ form.TEMPERATURA_DE_AGUA_DE_INGRESO.label_tag }}</td>
+            <td>{{ form.TEMPERATURA_DE_AGUA_DE_INGRESO }}</td>
+            <td>{{ form.TEMPERATURA_DE_AGUA_DE_TINA.label_tag }}</td>
+            <td>{{ form.TEMPERATURA_DE_AGUA_DE_TINA }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.SALINIDAD_DE_AGUA_EN_TINA.label_tag }}</td>
+            <td>{{ form.SALINIDAD_DE_AGUA_EN_TINA }}</td>
+            <td>{{ form.PRESION_ALTA_PSIG.label_tag }}</td>
+            <td>{{ form.PRESION_ALTA_PSIG }}</td>
+            <td>{{ form.PRESION_BAJA_PSIG.label_tag }}</td>
+            <td>{{ form.PRESION_BAJA_PSIG }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.CORRIENTE.label_tag }}</td>
+            <td>{{ form.CORRIENTE }}</td>
+            <td>{{ form.VOLTAJE.label_tag }}</td>
+            <td>{{ form.VOLTAJE }}</td>
+            <td>{{ form.CONTOMETROS.label_tag }}</td>
+            <td>{{ form.CONTOMETROS }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.MOTIVO_DE_PARADA.label_tag }}</td>
+            <td>{{ form.MOTIVO_DE_PARADA }}</td>
+            <td>{{ form.HORAS_DE_PARADA.label_tag }}</td>
+            <td>{{ form.HORAS_DE_PARADA }}</td>
+        </tr>
+    </table>
+
+</form>
+</html>
+
+desde aqui CSS
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 20;
+    background-color: rgb(241, 241, 245);
+}
+.Guardar{
+    padding: 5px 20px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: 2px solid #04AA6D;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 5px;
+}
+.Guardar:hover{
+    background: #0a9763;
+    color: white;
+}
+.Actualizar {
+    padding: 5px 20px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 5px;
+}
+.Actualizar:hover{
+    background: #228af8;
+    color: white;
+}
+.Eliminar {
+    padding: 5px 20px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: 2px solid #f44336;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 5px;
+}
+.Eliminar:hover{
+    background: #f86257;
+    color: white;
+}       
+
+form{
+background-color: white;
+border-radius: 8px;
+padding: 10px;
+color: black;
+margin: 5px;
+width: 1300px;
+border: 2px solid grey;
+}
+.form-content {
+font-size: 15px;
+display: grid;
+grid-template-columns: repeat(3,1fr);
+gap: 5px; /* Espacio entre los elementos del formulario */
+}
+
+.form-content p {
+flex: 1 1 45%; /* Ajusta el ancho de las columnas */
+}
+table {
+margin: 10px;
+width: 50%;
+border-collapse: collapse;
+background-color: white;
+}
+th,td {
+border: 1px solid rgb(154, 154, 239);
+padding: 10px;
+background-color: white;
+text-align: center;
+font-size: 11px;
+}
+th {
+background-color: rgb(68, 68, 247);
+color: white;
+font-size: 68%;
+text-align: center;
+
+
+
+
+{% load static %}
+<h2>Nuevo Registro</h2>
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ecuahielo</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
+    
+    
+    
+
+    <a href="{% url 'registro_list' %}" class="Menu">Menú</a>
+
+    <div class="form-container">
+        <form method="post" class="form-content">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <script type="text/javascript">
+                document.addEventListener("DOMContentLoaded", function() {
+                
+                    var racksField = document.getElementById("id_RACKS");
+        
+                    function toggleHiddenFields() {
+                        var selectedRack = racksField.value;
+                        
+                        // Campos ocultos
+                        var presionBajaComp1 = document.getElementById("id_PRESION_DE_BAJA_COMP_1");
+                        var presionBajaComp2 = document.getElementById("id_PRESION_DE_BAJA_COMP_2");
+                        var corriente = document.getElementById("id_CORRIENTE");
+                        var voltaje = document.getElementById("id_VOLTAJE");
+        
+                        if (selectedRack === 'SISTEMA NH3') {
+                            // Mostrar los campos ocultos
+                            presionBajaComp1.parentElement.style.display = 'block';
+                            presionBajaComp2.parentElement.style.display = 'block';
+                            corriente.parentElement.style.display = 'block';
+                            voltaje.parentElement.style.display = 'block';
+                        } else {
+                            // Ocultar los campos si no se selecciona SISTEMA NH3
+                            presionBajaComp1.parentElement.style.display = 'none';
+                            presionBajaComp2.parentElement.style.display = 'none';
+                            corriente.parentElement.style.display = 'none';
+                            voltaje.parentElement.style.display = 'none';
+                        }
+                    }
+        
+                    // Llamamos a la función al cargar el formulario
+                    toggleHiddenFields();
+        
+                    // Detectamos cambios en la selección de RACKS
+                    racksField.addEventListener("change", toggleHiddenFields);
+                });
+               </script>
+            <script>
+                // Verifica si hay un mensaje desde la vista
+                const mensaje = "{{ mensaje|escapejs }}";
+                if (mensaje) {
+                    Swal.fire({
+                        title: '¡Atención!',
+                        text: mensaje,
+                        icon: 'warning',
+                        confirmButtonText: 'Entendido'
+                    });
+                }
+            </script>
+            
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary mt-4">Guardar</button>
+            </div>
+        </form>
+        
+        
+        <br><br>
+        <a href="{% url 'visualizar_registros_racks' %}">Ver Registros</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+body{
+    font-family: 'Times New Roman', Times, serif;
+    margin: 20;
+    background-color: rgb(241, 241, 245);
+}
+.Guardar{
+    padding: 5px 20px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: 2px solid #04AA6D;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 5px;
+}
+.Guardar:hover{
+    background: #0a9763;
+    color: white;
+}
+.Actualizar{
+    padding: 5px 20px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 5px;
+}
+.Actualizar:hover{
+    background: #228af8;
+    color: white;
+}
+.Eliminar{
+    padding: 5px 20px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: 2px solid #f44336;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 5px;
+}
+.Eliminar:hover{
+    background: #f86257;
+    color: white;
+}       
+
+.form-container{
+    background-color: white;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10  px;
+    width: 1500px;
+    border: 2px solid grey;
+    
+}
+.form-container label {
+    display: block; /* Asegura que el texto esté en una línea separada */
+    text-align: left;
+    white-space: normal;
+    word-wrap: break-word;
+}
+.form-content{
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+    display: grid;
+    grid-template-columns: repeat(3, 3fr);
+    gap: 15px; /* Espacio entre los elementos del formulario */
+    margin-right: 10px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.form-content p{
+    margin: 0; /* Ajusta el ancho de las columnas */
+}
+
+input[type="text"], input[type="number"], select, textarea {
+    width: 220px; /* Ancho de la caja */
+    height: 40px; /* Alto de la caja */
+    background-color: rgb(221, 52, 52); /* Color de fondo */
+    border: 2px solid rgb(0, 162, 255); /* Borde */
+    border-radius: 4px; /* Bordes redondeados */
+    padding: 10px; /* Espaciado interno */
+    font-size: 14px; /* Tamaño de la fuente */
+    color: #333; /* Color del texto */
+}
+
+input[type="text"]:focus, input[type="number"]:focus, input[type="select"]:focus, textarea:focus {
+    border-color: #4c00ff; /* Color del borde al enfocarse */
+    outline: none; /* Elimina el borde azul predeterminado */
+}
+/*#4c00ff; */
+
+
+
+
+rgb(157, 157, 192)

@@ -1,0 +1,124 @@
+# Definir estilos comunes
+    COMMON_STYLE = {'style': 'width:132px; margin-right: 20px;'}
+
+    RCKS_CHOICES = [
+        ('ICESTA 1', 'ICESTA 1'), ('ICESTA 2', 'ICESTA 2'), ('ICESTA 3', 'ICESTA 3'),
+        ('ICESTA 4', 'ICESTA 4'), ('ICESTA 5', 'ICESTA 5'), ('ICESTA 6', 'ICESTA 6'),
+        ('ICESTA 7', 'ICESTA 7'), ('ICESTA 8', 'ICESTA 8'), ('ICESTA 9', 'ICESTA 9'),
+        ('RACK 10', 'RACK 10'), ('RACK 11', 'RACK 11'), ('RACK 12', 'RACK 12'),
+        ('RACK 13', 'RACK 13'), ('ICESTA 14', 'ICESTA 14'), ('RACK 15', 'RACK 15'),
+        ('RACK 16', 'RACK 16'), ('RACK 17', 'RACK 17'), ('ICESTA 18', 'ICESTA 18'),
+        ('ICESTA 19', 'ICESTA 19'), ('ICESTA 20', 'ICESTA 20'),
+        ('HOWES 1', 'HOWES 1'), ('HOWES 2', 'HOWES 2'), ('HOWES 3', 'HOWES 3'),
+        ('SISTEMA NH3', 'SISTEMA NH3')
+    ]
+
+    ESTADO_CHOICES = [
+        ('BUENO', 'BUENO'),
+        ('REGULAR', 'REGULAR'),
+        ('MALO', 'MALO')
+    ]
+
+    NIVEL_CHOICES = [
+        ('NORMAL', 'NORMAL'),
+        ('BAJO', 'BAJO'),
+        ('MUY BAJO', 'MUY BAJO')
+    ]
+
+    # Definir campos del formulario
+    RCKS = forms.ChoiceField(
+        choices=RCKS_CHOICES,
+        widget=forms.Select(attrs=COMMON_STYLE)
+    )
+
+    ESTADO_DEL_CONDENSADOR = forms.ChoiceField(
+        choices=ESTADO_CHOICES,
+        widget=forms.Select(attrs=COMMON_STYLE)
+    )
+
+    NIVEL_DE_REFRIGERANTE = forms.ChoiceField(
+        choices=NIVEL_CHOICES,
+        widget=forms.Select(attrs=COMMON_STYLE)
+    )
+
+    PRESION_ALTA_PSIG = forms.DecimalField(
+        widget=forms.NumberInput(attrs=COMMON_STYLE)
+    )
+
+    PRESION_BAJA_PSIG = forms.DecimalField(
+        required=False,
+        widget=forms.NumberInput(attrs={**COMMON_STYLE, 'step': '0.01'})
+    )
+
+    CORRIENTE = forms.DecimalField(
+        required=False,
+        widget=forms.NumberInput(attrs=COMMON_STYLE)
+    )
+
+    VOLTAJE = forms.DecimalField(
+        required=False,
+        widget=forms.NumberInput(attrs=COMMON_STYLE)
+    )
+
+
+
+    <div class="text-center">
+        <h1 class="text-primary-emphasis">Registros Ingresados- RACK</h1>
+    </div>
+    
+    <div class="text-end">
+        <a href="{% url 'registro_racks' %}"  
+            <button type="button" class="btn btn-danger">Nuevo Registro</button>
+    </a>
+    </div>
+    <p>  </p>
+    <div class="text-end"
+    <div id="exportar-excel" style="text-align: center; margin-bottom: 10px;">
+            <a href="{% url 'visualizar_registros_racks' %}?exportar=excel" class="btn btn-success">Exportar a Excel</a>
+    </div>
+    
+    
+    <!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Exposynergy</title>
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+            <link rel="stylesheet" href="{% static 'visu.css' %}">
+        </head>
+    <table>
+        <thead>
+            <tr>
+                <th>FECHA</th>
+                <th>RACK</th>
+                <th>ESTADO DEL CONDENSADOR</th>
+                <th>NIVEL DE REFRIGERANTE</th>
+                <th>PRESION ALTA PSIG</th>
+                <th>PRESION DE BAJA COMP 1</th>
+                <th>PRESION DE BAJA COMP 2</th>
+                <th>CORRIENTE</th>
+                <th>VOLTAJE</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for registro in registros %}
+                    <tr>
+                        <td>{{ registro.FECHA|date:"d/m/Y"}}</td>
+                        <td>{{ registro.RCKS}}</td>
+                        <td>{{ registro.ESTADO_DEL_CONDENSADOR}}</td>
+                        <td>{{ registro.NIVEL_DE_REFRIGERANTE}}</td>
+                        <td>{{ registro.PRESION_ALTA_PSIG}}</td>
+                        <td>{{ registro.PRESION_DE_BAJA_COMP_1}}</td>
+                        <td>{{ registro.PRESION_DE_BAJA_COMP_2}}</td>
+                        <td>{{ registro.CORRIENTE}}</td>
+                        <td>{{ registro.VOLTAJE}}</td>
+                    </tr>
+                
+            {% empty %}
+                <tr>
+                    <td colspan="17">    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
